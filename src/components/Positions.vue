@@ -8,7 +8,7 @@ const positions = ref([]);
 
 const fetchPositions = async () => {
   try {
-    const response = await axios.get(import.meta.env.VITE_API_BASE_URL + '/positions');
+    const response = await axios.get(import.meta.env.VITE_API_BASE_URL + '/api/positions');
     positions.value = response.data.positions;
   } catch (error) {
     console.error('Error fetching users:', error);

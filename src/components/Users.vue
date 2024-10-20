@@ -31,7 +31,7 @@ const loadScript = (src, callback) => {
 };
 
 onMounted(() => {
-  fetchUsers(apiUrl + '/users');
+  fetchUsers(apiUrl + '/api/users');
   console.log(users.value);
   loadScript('/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js');
   loadScript('https://code.jquery.com/jquery-1.10.2.min.js', () => {
@@ -69,7 +69,7 @@ function showMore(){
                 <tr v-for="user in users" :key="user.id">
                   <td>
                     <template v-if="user.photo">
-                      <img :src="'http://localhost/' + user.photo" alt>
+                      <img :src="user.photo" alt>
                     </template>
                     <template v-else>
                       <img src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg" alt>

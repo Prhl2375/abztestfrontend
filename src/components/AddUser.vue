@@ -17,7 +17,7 @@ const handlePhotoUpload = (event) => {
 const submitForm = async () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const headers = {
-    'token': (await axios.get(apiUrl + '/token')).data.token,
+    'token': (await axios.get(apiUrl + '/api/token')).data.token,
   };
   const formDataToSend = new FormData();
   formDataToSend.append('name', formData.name);
@@ -27,7 +27,7 @@ const submitForm = async () => {
   formDataToSend.append('photo', formData.photo);
   try {
     console.log(formData);
-    const response = await axios.post(apiUrl + '/users', formDataToSend, { headers: headers });
+    const response = await axios.post(apiUrl + '/api/users', formDataToSend, { headers: headers });
     console.log(response);
     alert('Form submitted successfully');
   } catch (error) {
